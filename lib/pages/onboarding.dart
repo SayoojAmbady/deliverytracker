@@ -20,7 +20,7 @@ class _OnboardingState extends State<Onboarding> {
         margin: EdgeInsets.only(top: 20.0),
         child: Column(
           children: [Image.asset("assets/images/onboard.png"),
-            Text("Track your parcel\nfrom anywhere" , style: AppWidget.HeadlineTextfiledStyle(),
+            Text("Track your parcel\nfrom anywhere" , style: AppWidget.HeadlineTextfiledStyle(30.0),
               textAlign: TextAlign.center,),
             SizedBox(height: 30),
             Text("Check the Progress of\n your deliveries" , style: AppWidget.SimpleTextfiledStyle(),

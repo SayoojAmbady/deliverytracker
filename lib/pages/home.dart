@@ -18,16 +18,32 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             Row(
-              children: [SizedBox(width: MediaQuery.of(context).size.width/3.6),
-                  Icon(Icons.location_on,color: Color(0xff6053f8),size: 30.0,),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                   Column(
                     children: [
-                      Text("Current Location",style: AppWidget.SimpleTextfiledStyle(),),
-                      Text("City Avneue,New York",style: AppWidget.SimpleTextfiledStyle(),)
+                      Row(
+                        children: [
+                          Icon(Icons.location_on,color: Color(0xff6053f8),size: 29.0),
+                          Text("Current Location",style: AppWidget.SimpleTextfiledStyle()),
+                        ],
+                      ),
+
+                      Text("City Avneue,New York",style: AppWidget.HeadlineTextfiledStyle(18.0),)
                     ],
-                  )
+                  ),
+
 
     ],
+            ),
+SizedBox(height: 20),
+            Container(
+
+              height: MediaQuery.of(context).size.height/2,
+              decoration: BoxDecoration(color:  Color(0xff6053f8)),
+              margin: EdgeInsets.only(left: 20,right: 20),
+              
             )
           ],
         ),

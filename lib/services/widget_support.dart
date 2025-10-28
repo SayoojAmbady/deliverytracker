@@ -4,10 +4,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AppWidget{
-  static TextStyle HeadlineTextfiledStyle(){
+  static TextStyle HeadlineTextfiledStyle( double textsize){
     return TextStyle(
       color: Colors.black,
-      fontSize: 30.0,
+      fontSize: textsize,
       fontWeight: FontWeight.bold,
     );
   }
