@@ -1,10 +1,9 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class AppWidget{
-  static TextStyle HeadlineTextfiledStyle( double textsize){
+class AppWidget {
+  static TextStyle HeadlineTextfiledStyle(double textsize) {
     return TextStyle(
       color: Colors.black,
       fontSize: textsize,
@@ -12,17 +11,27 @@ class AppWidget{
     );
   }
 
-  static TextStyle SimpleTextfiledStyle(){
+  static TextStyle SimpleTextfiledStyle() {
     return TextStyle(
       color: Colors.black38,
       fontSize: 18.0,
       fontWeight: FontWeight.w500,
     );
   }
-  static TextStyle WhiteTextfiledStyle(){
+
+  static TextStyle WhiteTextfiledStyle() {
     return TextStyle(
       color: Colors.white,
-      fontSize: 20.0,fontWeight: FontWeight.bold,
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+    );
+  }
+
+  static TextStyle DifferenetShadeWhiteTextfiledStyle() {
+    return TextStyle(
+      color: Colors.white54,
+      fontSize: 17.0,
+      fontWeight: FontWeight.w500,
     );
   }
 }
