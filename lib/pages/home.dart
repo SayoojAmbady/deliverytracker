@@ -99,12 +99,102 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                Text("Checking datas"),
+                SizedBox(height: 10),
                 Container(
-                  height: MediaQuery.of(context).size.height/4,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(children: [Image.asset("assets/images/signin.png",height: 50,width: 100)],),
-                )
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  child: Material(
+                    elevation: 2.0,
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.black38, width: 2.0),
+                      ),
+                      child: Row(
+
+                        children: [
+                          Image.asset(
+                            "assets/images/fast-delivery.png",
+                            height: 120,
+                            width: 120,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(width: 10),
+                          Column(
+                            children: [
+                              Text(
+                                "Order a delivery",
+                                style: AppWidget.HeadlineTextfiledStyle(22.0),
+                              ),
+                              SizedBox(height: 5.0),
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.9,
+                                child: Text(
+                                  "We'll pick it up and deliver it \naccross the town quickly and securely",
+                                  textAlign: TextAlign.center,
+                                  style:
+                                      AppWidget.OrderDeliverySimpleTextfiledStyle(
+                                        16.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  child: Material(
+                    elevation: 2.0,
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.black38, width: 2.0),
+                      ),
+                      child: Row(
+
+                        children: [
+                          Image.asset(
+                            "assets/images/fast-delivery.png",
+                            height: 120,
+                            width: 120,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(width: 10),
+                          Column(
+                            children: [
+                              Text(
+                                "Order a delivery",
+                                style: AppWidget.HeadlineTextfiledStyle(22.0),
+                              ),
+                              SizedBox(height: 5.0),
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.9,
+                                child: Text(
+                                  "We'll pick it up and deliver it \naccross the town quickly and securely",
+                                  textAlign: TextAlign.center,
+                                  style:
+                                  AppWidget.OrderDeliverySimpleTextfiledStyle(
+                                    16.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

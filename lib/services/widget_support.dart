@@ -34,4 +34,12 @@ class AppWidget {
       fontWeight: FontWeight.w500,
     );
   }
+
+  static TextStyle OrderDeliverySimpleTextfiledStyle(double textsize) {
+    return TextStyle(
+      color: Colors.black38,
+      fontSize: textsize,
+      fontWeight: FontWeight.w500,
+    );
+  }
 }
