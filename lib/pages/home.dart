@@ -59,17 +59,17 @@ class _HomeState extends State<Home> {
 
                   child: Column(
                     children: [
-                      SizedBox(height: 20),
+                      SizedBox(height: 30),
                       Text(
                         "Track Your Shipment",
                         style: AppWidget.WhiteTextfiledStyle(),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 10),
                       Text(
                         "Please enter your Traking number",
                         style: AppWidget.DifferenetShadeWhiteTextfiledStyle(),
                       ),
-                      SizedBox(height: 18),
+                      SizedBox(height: 30),
                       Container(
                         padding: EdgeInsets.symmetric(
                           vertical: 5.0,
@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 15),
                 Container(
                   margin: EdgeInsets.only(left: 20, right: 20),
                   child: Material(
@@ -107,6 +107,7 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(30),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
+                      padding: EdgeInsets.only(left: 10.0,right: 10,top: 10,bottom: 10,),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
@@ -126,7 +127,7 @@ class _HomeState extends State<Home> {
                             children: [
                               Text(
                                 "Order a delivery",
-                                style: AppWidget.HeadlineTextfiledStyle(22.0),
+                                style: AppWidget.HeadlineTextfiledStyle(20.0),
                               ),
                               SizedBox(height: 5.0),
                               Container(
@@ -147,7 +148,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 15),
                 Container(
                   margin: EdgeInsets.only(left: 20, right: 20),
                   child: Material(
@@ -155,6 +156,7 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(30),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
+                      padding: EdgeInsets.only(left: 10.0,right: 10,top: 10,bottom: 10,),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(30),
@@ -164,7 +166,7 @@ class _HomeState extends State<Home> {
 
                         children: [
                           Image.asset(
-                            "assets/images/fast-delivery.png",
+                            "assets/images/parcel.png",
                             height: 120,
                             width: 120,
                             fit: BoxFit.cover,
@@ -173,14 +175,14 @@ class _HomeState extends State<Home> {
                           Column(
                             children: [
                               Text(
-                                "Order a delivery",
-                                style: AppWidget.HeadlineTextfiledStyle(22.0),
+                                "Track a delivery",
+                                style: AppWidget.HeadlineTextfiledStyle(20.0),
                               ),
                               SizedBox(height: 5.0),
                               Container(
                                 width: MediaQuery.of(context).size.width / 1.9,
                                 child: Text(
-                                  "We'll pick it up and deliver it \naccross the town quickly and securely",
+                                  "Track your delivery in real-Timefrom pickup to drop-off",
                                   textAlign: TextAlign.center,
                                   style:
                                   AppWidget.OrderDeliverySimpleTextfiledStyle(
@@ -195,6 +197,56 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
+                SizedBox(height: 15),
+                Container(
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  child: Material(
+                    elevation: 2.0,
+                    borderRadius: BorderRadius.circular(30),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      padding: EdgeInsets.only(left: 10.0,right: 10,top: 10,bottom: 10,),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.black38, width: 2.0),
+                      ),
+                      child: Row(
+
+                        children: [
+                          Image.asset(
+                            "assets/images/delivery-bike.png",
+                            height: 100,
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(width: 10),
+                          Column(
+                            children: [
+                              Text(
+                                "Check delivery history",
+                                style: AppWidget.HeadlineTextfiledStyle(20.0),
+                              ),
+                              SizedBox(height: 5.0),
+                              Container(
+                                width: MediaQuery.of(context).size.width / 1.9,
+                                child: Text(
+                                  "Check your delivery history anytime to view details and stay organized",
+                                  textAlign: TextAlign.center,
+                                  style:
+                                  AppWidget.OrderDeliverySimpleTextfiledStyle(
+                                    16.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
               ],
             ),
           ),
