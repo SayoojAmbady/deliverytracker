@@ -42,4 +42,18 @@ class AppWidget {
       fontWeight: FontWeight.w500,
     );
   }
+  static TextStyle NomalTextfiledStyle(double textsize) {
+    return TextStyle(
+      color: Colors.black87,
+      fontSize: textsize,
+      fontWeight: FontWeight.w500,
+    );
+  }
+  static TextStyle AdjustSimpleTextfiledStyle(double textsize) {
+    return TextStyle(
+      color: Colors.black38,
+      fontSize: textsize,
+      fontWeight: FontWeight.w500,
+    );
+  }
 }
