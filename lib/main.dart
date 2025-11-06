@@ -1,9 +1,14 @@
 
+
+
+
 import 'package:deliverytracker/pages/home.dart';
+import 'package:deliverytracker/pages/main_navigation.dart';
 import 'package:deliverytracker/pages/onboarding.dart';
 import 'package:deliverytracker/pages/post.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get_navigation/src/routes/get_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,33 +17,21 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Delivery Tracker',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-     // home: Onboarding(),
-      home: PostPage(),
-
+      initialRoute: '/main',
+      getPages: [
+        GetPage(name: '/onboarding', page: () => Onboarding()),
+        GetPage(name: '/home', page: () => Home()),
+        GetPage(name: '/post', page: () => PostPage()),
+        GetPage(name: '/main', page: () => MainNavigation()),
+      ],
     );
   }
 }

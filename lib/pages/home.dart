@@ -1,256 +1,133 @@
-import 'package:deliverytracker/services/widget_support.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controllers/home_controller.dart';
+import '../services/widget_support.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Home extends StatelessWidget {
+  Home({super.key});
+  final controller = Get.put(HomeController());
 
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.location_on, color: Color(0xff6053f8), size: 29.0),
+                  const SizedBox(width: 6),
+                  Text("Current Location", style: AppWidget.SimpleTextfiledStyle()),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Text("City Avenue, New York", style: AppWidget.HeadlineTextfiledStyle(18.0)),
+              const SizedBox(height: 10),
+
+              Container(
+                width: screenWidth,
+                height: screenHeight / 2.0,
+                decoration: BoxDecoration(
+                  color: const Color(0xff6053f8),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Column(
                   children: [
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.location_on,
-                              color: Color(0xff6053f8),
-                              size: 29.0,
-                            ),
-                            Text(
-                              "Current Location",
-                              style: AppWidget.SimpleTextfiledStyle(),
-                            ),
-                          ],
+                    const SizedBox(height: 30),
+                    Text("Track Your Shipment", style: AppWidget.WhiteTextfiledStyle()),
+                    const SizedBox(height: 10),
+                    Text("Please enter your Tracking number",
+                        style: AppWidget.DifferenetShadeWhiteTextfiledStyle()),
+                    const SizedBox(height: 30),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: TextField(
+                        onChanged: (val) => controller.trackNumber.value = val,
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.track_changes, color: Colors.red),
+                          border: InputBorder.none,
+                          hintText: "Enter Track Number",
+                          hintStyle: AppWidget.HeadlineTextfiledStyle(17.0),
                         ),
-                        SizedBox(height: 8),
-                        Text(
-                          "City Avneue,New York",
-                          style: AppWidget.HeadlineTextfiledStyle(18.0),
-                        ),
-                      ],
+                        style: const TextStyle(color: Colors.black, fontSize: 20.0),
+                      ),
                     ),
+                    const Spacer(),
+                    Image.asset("assets/images/home.png", height: 200),
                   ],
                 ),
-                SizedBox(height: 10),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 2.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xff6053f8),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  margin: EdgeInsets.only(left: 20, right: 20),
+              ),
+              const SizedBox(height: 20),
 
-                  child: Column(
-                    children: [
-                      SizedBox(height: 30),
-                      Text(
-                        "Track Your Shipment",
-                        style: AppWidget.WhiteTextfiledStyle(),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "Please enter your Traking number",
-                        style: AppWidget.DifferenetShadeWhiteTextfiledStyle(),
-                      ),
-                      SizedBox(height: 30),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 5.0,
-                          horizontal: 10.0,
-                        ),
-                        height: 60,
-                        margin: EdgeInsets.only(left: 20, right: 20),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.track_changes,
-                              color: Colors.red,
-                            ),
-                            border: InputBorder.none,
-                            hintText: "Enter Track Number",
-                            hintStyle: AppWidget.HeadlineTextfiledStyle(17.0),
-                          ),
-                          style: TextStyle(color: Colors.black, fontSize: 20.0),
-                        ),
-                      ),
-                      Spacer(),
-                      Image.asset("assets/images/home.png", height: 200),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 15),
-                Container(
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  child: Material(
-                    elevation: 2.0,
-                    borderRadius: BorderRadius.circular(30),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.only(left: 10.0,right: 10,top: 10,bottom: 10,),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: Colors.black38, width: 2.0),
-                      ),
-                      child: Row(
-
-                        children: [
-                          Image.asset(
-                            "assets/images/fast-delivery.png",
-                            height: 120,
-                            width: 120,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(width: 10),
-                          Column(
-                            children: [
-                              Text(
-                                "Order a delivery",
-                                style: AppWidget.HeadlineTextfiledStyle(20.0),
-                              ),
-                              SizedBox(height: 5.0),
-                              Container(
-                                width: MediaQuery.of(context).size.width / 1.9,
-                                child: Text(
-                                  "We'll pick it up and deliver it \naccross the town quickly and securely",
-                                  textAlign: TextAlign.center,
-                                  style:
-                                      AppWidget.OrderDeliverySimpleTextfiledStyle(
-                                        16.0,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 15),
-                Container(
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  child: Material(
-                    elevation: 2.0,
-                    borderRadius: BorderRadius.circular(30),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.only(left: 10.0,right: 10,top: 10,bottom: 10,),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: Colors.black38, width: 2.0),
-                      ),
-                      child: Row(
-
-                        children: [
-                          Image.asset(
-                            "assets/images/parcel.png",
-                            height: 120,
-                            width: 120,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(width: 10),
-                          Column(
-                            children: [
-                              Text(
-                                "Track a delivery",
-                                style: AppWidget.HeadlineTextfiledStyle(20.0),
-                              ),
-                              SizedBox(height: 5.0),
-                              Container(
-                                width: MediaQuery.of(context).size.width / 1.9,
-                                child: Text(
-                                  "Track your delivery in real-Timefrom pickup to drop-off",
-                                  textAlign: TextAlign.center,
-                                  style:
-                                  AppWidget.OrderDeliverySimpleTextfiledStyle(
-                                    16.0,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 15),
-                Container(
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  child: Material(
-                    elevation: 2.0,
-                    borderRadius: BorderRadius.circular(30),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.only(left: 10.0,right: 10,top: 10,bottom: 10,),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: Colors.black38, width: 2.0),
-                      ),
-                      child: Row(
-
-                        children: [
-                          Image.asset(
-                            "assets/images/delivery-bike.png",
-                            height: 100,
-                            width: 100,
-                            fit: BoxFit.cover,
-                          ),
-                          SizedBox(width: 10),
-                          Column(
-                            children: [
-                              Text(
-                                "Check delivery history",
-                                style: AppWidget.HeadlineTextfiledStyle(20.0),
-                              ),
-                              SizedBox(height: 5.0),
-                              Container(
-                                width: MediaQuery.of(context).size.width / 1.9,
-                                child: Text(
-                                  "Check your delivery history anytime to view details and stay organized",
-                                  textAlign: TextAlign.center,
-                                  style:
-                                  AppWidget.OrderDeliverySimpleTextfiledStyle(
-                                    16.0,
-                                  ),
-                                ),
-                              ),
-                              
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-
-              ],
-            ),
+              _buildOptionCard(
+                context,
+                "assets/images/fast-delivery.png",
+                "Order a delivery",
+                "We'll pick it up and deliver it across the town quickly and securely",
+              ),
+              const SizedBox(height: 15),
+              _buildOptionCard(
+                context,
+                "assets/images/parcel.png",
+                "Track a delivery",
+                "Track your delivery in real-time from pickup to drop-off",
+              ),
+              const SizedBox(height: 15),
+              _buildOptionCard(
+                context,
+                "assets/images/delivery-bike.png",
+                "Check delivery history",
+                "Check your delivery history anytime to stay organized",
+              ),
+              const SizedBox(height: 40),
+            ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildOptionCard(BuildContext context, String img, String title, String desc) {
+    return Material(
+      elevation: 2.0,
+      borderRadius: BorderRadius.circular(30),
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(color: Colors.black38, width: 2.0),
+        ),
+        child: Row(
+          children: [
+            Image.asset(img, height: 100, width: 100, fit: BoxFit.cover),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: AppWidget.HeadlineTextfiledStyle(20.0)),
+                  const SizedBox(height: 5),
+                  Text(desc,
+                      textAlign: TextAlign.center,
+                      style: AppWidget.OrderDeliverySimpleTextfiledStyle(16.0)),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
